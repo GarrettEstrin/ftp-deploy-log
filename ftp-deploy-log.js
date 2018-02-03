@@ -25,7 +25,8 @@ const FtpDeployer = function () {
 	let remoteRoot;
 	const partialDirectories = [];   // Holds list of directories to check & create (excluding local root path)
 	const partialFilePaths = [];     // Holds list of partial file paths to upload
-	var newPartialFilePaths = [];
+	let newPartialFilePaths = [];    // Required for data using log system
+	let initialUpload;       // Set to true if a log is created
 	// var parallelUploads = 1;      // NOTE: this can be added in when sftp is supported
 	let exclude = [];
 	let include = [];
@@ -239,6 +240,9 @@ function createModifiedLogIfNotCreated(localRoot){
 	if(!fs.existsSync(localRoot+'/modifiedLog.json')){
 		var json = JSON.stringify({});
 		fs.writeFileSync(localRoot+'/modifiedLog.json', json, "utf8")
+		initialUpload = true;
+	}else {
+		initialUpload = false;
 	}
 }
 
@@ -274,6 +278,9 @@ function checkIfFileIsModified(localRoot, partialFilePaths, log){
 	}
 	let json = JSON.stringify(newLog);
 	fs.writeFileSync(localRoot+'/modifiedLog.json', json, "utf8");
+	if(initialUpload){
+		return partialFilePaths;
+	}
 	return newFileList;
 }
 

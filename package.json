@@ -1,11 +1,11 @@
 {
   "_args": [
     [
-      "ftp-deploy-log@1.2.2"
+      "ftp-deploy-log@1.2.4"
     ]
   ],
-  "_from": "ftp-deploy-log@1.2.2",
-  "_id": "ftp-deploy-log@1.2.2",
+  "_from": "ftp-deploy-log@1.2.4",
+  "_id": "ftp-deploy-log@1.2.4",
   "_inBundle": false,
   "_integrity": "sha1-YPqL0ksWeBrB1n9xMFb4M8fXJGU=",
   "_location": "/ftp-deploy-log",
@@ -13,17 +13,17 @@
   "_requested": {
     "type": "version",
     "registry": true,
-    "raw": "ftp-deploy-log@1.2.2",
+    "raw": "ftp-deploy-log@1.2.4",
     "name": "ftp-deploy-log",
     "escapedName": "ftp-deploy-log",
-    "rawSpec": "1.2.2",
+    "rawSpec": "1.2.4",
     "saveSpec": null,
-    "fetchSpec": "1.2.2"
+    "fetchSpec": "1.2.4"
   },
   "_requiredBy": [
     "/"
   ],
-  "_spec": "1.2.2",
+  "_spec": "1.2.4",
   "author": {
     "name": "Simon Hampton",
     "url": "was Rick Bergfalk"
@@ -47,7 +47,7 @@
     "minimatch": "3.0.4",
     "read": "1.0.7"
   },
-  "description": "Ftp a folder from your local disk to an ftp destination. Does not delete from destination directory. Derived from grunt-ftp-deploy",
+  "description": "Ftp a folder from your local disk to an ftp destination. Does not delete from destination directory. Logs file modification dates to avoid uploading duplicate file.  Derived from ftp-deploy which was derived from grunt-ftp-deploy",
   "devDependencies": {
     "xo": "^0.18.2"
   },
@@ -71,5 +71,5 @@
     "lint-fix": "xo --fix",
     "test": "node test/test.js"
   },
-  "version": "1.2.2"
+  "version": "1.2.4"
 }

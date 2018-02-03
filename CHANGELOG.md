@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.2.4
+    - Adds full directory upload at time of log creation.  All uploades after log creation will exclude any files that have not been modified since last upload.
+
 ## 1.2.0
     - Adds an optional config.include which supersedes any exclusion rules.
     - Linting code cleanup via xo style/tool
