@@ -1,16 +1,16 @@
-# ftp-deploy
+# ftp-deploy-log
 
 A Node.js package to help with deploying code. Ftp a folder from your local disk to a remote ftp destination. Does not delete from destination directory.
 
 ## Installation
 
 ```js
-npm install ftp-deploy
+npm install ftp-deploy-log
 ```
 
 (Need sftp? Check out [sftp-upload](https://github.com/pirumpi/sftp-upload))
 
-## New maintianer
+## New maintainer
 
 I've taken over from Rick in May 2017, and will start working on the deprecation warnings, and the 'delete remote directory' requests.
 
@@ -27,7 +27,7 @@ I create a file - e.g. deploy.js - in the root of my source code and add a scrip
 The most basic usage (stops uploading when an error occurs):
 
 ```js
-var FtpDeploy = require('ftp-deploy');
+var FtpDeploy = require('ftp-deploy-log');
 var ftpDeploy = new FtpDeploy();
 
 var config = {
