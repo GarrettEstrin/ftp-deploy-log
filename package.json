@@ -1,0 +1,76 @@
+{
+  "_args": [
+    [
+      "ftp-deploy@1.2.2"
+    ]
+  ],
+  "_from": "ftp-deploy@1.2.2",
+  "_id": "ftp-deploy@1.2.2",
+  "_inBundle": false,
+  "_integrity": "sha1-YPqL0ksWeBrB1n9xMFb4M8fXJGU=",
+  "_location": "/ftp-deploy",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "ftp-deploy@1.2.2",
+    "name": "ftp-deploy",
+    "escapedName": "ftp-deploy",
+    "rawSpec": "1.2.2",
+    "saveSpec": null,
+    "fetchSpec": "1.2.2"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/ftp-deploy/-/ftp-deploy-1.2.2.tgz",
+  "_spec": "1.2.2",
+  "author": {
+    "name": "Simon Hampton",
+    "url": "was Rick Bergfalk"
+  },
+  "bugs": {
+    "url": "https://github.com/simonh1000/ftp-deploy/issues"
+  },
+  "contributors": [
+    {
+      "name": "Ondrej",
+      "url": "https://github.com/der-On"
+    },
+    {
+      "name": "keyle",
+      "url": "https://github.com/keyle"
+    }
+  ],
+  "dependencies": {
+    "async": "2.x.x",
+    "jsftp": "2.0.x",
+    "minimatch": "3.0.4",
+    "read": "1.0.7"
+  },
+  "description": "Ftp a folder from your local disk to an ftp destination. Does not delete from destination directory. Derived from grunt-ftp-deploy",
+  "devDependencies": {
+    "xo": "^0.18.2"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "homepage": "https://github.com/simonh1000/ftp-deploy#readme",
+  "keywords": [
+    "ftp",
+    "deploy"
+  ],
+  "license": "",
+  "main": "ftp-deploy",
+  "name": "ftp-deploy",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/simonh1000/ftp-deploy.git"
+  },
+  "scripts": {
+    "lint": "xo",
+    "lint-fix": "xo --fix",
+    "test": "node test/test.js"
+  },
+  "version": "1.2.2"
+}
