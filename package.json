@@ -1,11 +1,11 @@
 {
   "_args": [
     [
-      "ftp-deploy-log@1.2.4"
+      "ftp-deploy-log@1.2.5"
     ]
   ],
-  "_from": "ftp-deploy-log@1.2.4",
-  "_id": "ftp-deploy-log@1.2.4",
+  "_from": "ftp-deploy-log@1.2.5",
+  "_id": "ftp-deploy-log@1.2.5",
   "_inBundle": false,
   "_integrity": "sha1-YPqL0ksWeBrB1n9xMFb4M8fXJGU=",
   "_location": "/ftp-deploy-log",
@@ -13,17 +13,17 @@
   "_requested": {
     "type": "version",
     "registry": true,
-    "raw": "ftp-deploy-log@1.2.4",
+    "raw": "ftp-deploy-log@1.2.5",
     "name": "ftp-deploy-log",
     "escapedName": "ftp-deploy-log",
-    "rawSpec": "1.2.4",
+    "rawSpec": "1.2.5",
     "saveSpec": null,
-    "fetchSpec": "1.2.4"
+    "fetchSpec": "1.2.5"
   },
   "_requiredBy": [
     "/"
   ],
-  "_spec": "1.2.4",
+  "_spec": "1.2.5",
   "author": {
     "name": "Simon Hampton",
     "url": "was Rick Bergfalk"
@@ -71,5 +71,5 @@
     "lint-fix": "xo --fix",
     "test": "node test/test.js"
   },
-  "version": "1.2.4"
+  "version": "1.2.5"
 }
