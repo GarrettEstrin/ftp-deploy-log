@@ -1,7 +1,7 @@
 {
   "_args": [
     [
-      "ftp-deploy@1.2.2"
+      "ftp-deploy-log@1.2.2"
     ]
   ],
   "_from": "ftp-deploy@1.2.2",
@@ -13,9 +13,9 @@
   "_requested": {
     "type": "version",
     "registry": true,
-    "raw": "ftp-deploy@1.2.2",
-    "name": "ftp-deploy",
-    "escapedName": "ftp-deploy",
+    "raw": "ftp-deploy-log@1.2.2",
+    "name": "ftp-deploy-log",
+    "escapedName": "ftp-deploy-log",
     "rawSpec": "1.2.2",
     "saveSpec": null,
     "fetchSpec": "1.2.2"
