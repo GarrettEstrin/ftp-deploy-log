@@ -4,11 +4,11 @@
       "ftp-deploy-log@1.2.2"
     ]
   ],
-  "_from": "ftp-deploy@1.2.2",
-  "_id": "ftp-deploy@1.2.2",
+  "_from": "ftp-deploy-log@1.2.2",
+  "_id": "ftp-deploy-log@1.2.2",
   "_inBundle": false,
   "_integrity": "sha1-YPqL0ksWeBrB1n9xMFb4M8fXJGU=",
-  "_location": "/ftp-deploy",
+  "_location": "/ftp-deploy-log",
   "_phantomChildren": {},
   "_requested": {
     "type": "version",
@@ -23,7 +23,6 @@
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/ftp-deploy/-/ftp-deploy-1.2.2.tgz",
   "_spec": "1.2.2",
   "author": {
     "name": "Simon Hampton",
@@ -61,11 +60,11 @@
     "deploy"
   ],
   "license": "",
-  "main": "ftp-deploy",
-  "name": "ftp-deploy",
+  "main": "ftp-deploy-log",
+  "name": "ftp-deploy-log",
   "repository": {
     "type": "git",
-    "url": "git://github.com/simonh1000/ftp-deploy.git"
+    "url": "git://github.com/garrettestrin/ftp-deploy-log.git"
   },
   "scripts": {
     "lint": "xo",
