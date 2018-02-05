@@ -56,9 +56,6 @@ const FtpDeployer = function () {
 
 	// A method for parsing the source location and storing the information into a suitably formated object
 	function dirParseSync(startDir, useLog, result) {
-		console.log(startDir);
-		console.log(useLog);
-		console.log(result);
 		let i;
 		let tmpPath;
 		let currFile;
@@ -205,11 +202,16 @@ const FtpDeployer = function () {
 		if (has(config, 'continueOnError')) {
 			continueOnError = config.continueOnError;
 		}
+		if (has(config, 'useLog')) {
+			useLog = config.useLog;
+		}else {
+			useLog = false;
+		}
 		exclude = config.exclude || exclude;
 		include = config.include || include;
 
 		ftp.useList = true;
-		dirParseSync(localRoot, config.useLog);
+		dirParseSync(localRoot, useLog);
 
     // Authentication and main processing of files
 		ftp.auth(config.username, config.password, err => {
