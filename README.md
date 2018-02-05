@@ -38,7 +38,8 @@ var config = {
 	localRoot: __dirname + "/local-folder",
 	remoteRoot: "/public_html/remote-folder/",
 	include: ['build/version.txt'],
-	exclude: ['.git', '.idea', 'tmp/*', 'build/*']
+	exclude: ['.git', '.idea', 'tmp/*', 'build/*'],
+	useLog: true;  // set to false if you do not want to track file modified dates to ignore previously 			   // pushed versions of files
 }
 	
 ftpDeploy.deploy(config, function(err) {

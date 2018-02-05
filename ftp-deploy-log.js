@@ -55,7 +55,10 @@ const FtpDeployer = function () {
 	}
 
 	// A method for parsing the source location and storing the information into a suitably formated object
-	function dirParseSync(startDir, result) {
+	function dirParseSync(startDir, useLog, result) {
+		console.log(startDir);
+		console.log(useLog);
+		console.log(result);
 		let i;
 		let tmpPath;
 		let currFile;
@@ -72,7 +75,9 @@ const FtpDeployer = function () {
 
 		// Check if log file has been created
 		// Create if it doesn't exist
-		createModifiedLogIfNotCreated(localRoot);
+		if(useLog){
+			createModifiedLogIfNotCreated(localRoot);
+		}
 
 		// Iterate throught the contents of the `startDir` location of the current iteration
 		const files = fs.readdirSync(startDir);
@@ -204,7 +209,7 @@ const FtpDeployer = function () {
 		include = config.include || include;
 
 		ftp.useList = true;
-		dirParseSync(localRoot);
+		dirParseSync(localRoot, config.useLog);
 
     // Authentication and main processing of files
 		ftp.auth(config.username, config.password, err => {
@@ -245,10 +250,6 @@ function createModifiedLogIfNotCreated(localRoot){
 		initialUpload = false;
 	}
 }
-
-function compareLogDates(){
-
-}
 function checkIfFileIsLogged(localRoot, partialFilePaths){
 	let log = fs.readFileSync(localRoot+"/modifiedLog.json", "utf8");
 	log = JSON.parse(log);
@@ -278,9 +279,13 @@ function checkIfFileIsModified(localRoot, partialFilePaths, log){
 	}
 	let json = JSON.stringify(newLog);
 	fs.writeFileSync(localRoot+'/modifiedLog.json', json, "utf8");
+	if(typeof initialUpload == "undefined"){
+		initialUpload = true;
+	}
 	if(initialUpload){
 		return partialFilePaths;
 	}
+
 	return newFileList;
 }
 
