@@ -90,7 +90,7 @@ const FtpDeployer = function () {
 						result[tmpPath] = [];
 						partialDirectories.push(tmpPath);
 					}
-					dirParseSync(currFile, result);
+					dirParseSync(currFile, useLog, result);
 				}
 			} else {
 				tmpPath = path.relative(localRoot, startDir);
@@ -257,7 +257,7 @@ function checkIfFileIsLogged(localRoot, partialFilePaths){
 	log = JSON.parse(log);
 	partialFilePaths.forEach(function(el){
 		if(log[el] == undefined){
-			let date = fs.statSync(localRoot + el).mtime;
+			let date = fs.statSync(localRoot + "/" + el).mtime;
 			log[el] = date.toString();
 		}
 	})
@@ -270,13 +270,13 @@ function checkIfFileIsModified(localRoot, partialFilePaths, log){
 	let newLog = {};
 	for(var i = 0, c = partialFilePaths.length;i<c;i++){
 		let logDate = log[partialFilePaths[i]];
-		let fileDate = fs.statSync(localRoot + partialFilePaths[i]).mtime;
+		let fileDate = fs.statSync(localRoot + "/" + partialFilePaths[i]).mtime;
 		fileDate = fileDate.toString();
 		if(logDate != fileDate){
 			newFileList.push(partialFilePaths[i]);
-			newLog[partialFilePaths[i]] = fs.statSync(localRoot + partialFilePaths[i]).mtime.toString();
+			newLog[partialFilePaths[i]] = fs.statSync(localRoot + "/" + partialFilePaths[i]).mtime.toString();
 		} else {
-			newLog[partialFilePaths[i]] = fs.statSync(localRoot + partialFilePaths[i]).mtime.toString();
+			newLog[partialFilePaths[i]] = fs.statSync(localRoot + "/" + partialFilePaths[i]).mtime.toString();
 		}
 	}
 	let json = JSON.stringify(newLog);
