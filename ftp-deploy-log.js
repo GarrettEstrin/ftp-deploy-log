@@ -257,8 +257,8 @@ function checkIfFileIsLogged(localRoot, partialFilePaths){
 	log = JSON.parse(log);
 	partialFilePaths.forEach(function(el){
 		if(log[el] == undefined){
-			let date = fs.statSync(localRoot + "/" + el).mtime;
-			log[el] = date.toString();
+			//let date = fs.statSync(localRoot + "/" + el).mtime;
+			log[el] = "new";
 		}
 	})
 	let json = JSON.stringify(log)
@@ -272,9 +272,13 @@ function checkIfFileIsModified(localRoot, partialFilePaths, log){
 		let logDate = log[partialFilePaths[i]];
 		let fileDate = fs.statSync(localRoot + "/" + partialFilePaths[i]).mtime;
 		fileDate = fileDate.toString();
-		if(logDate != fileDate){
-			newFileList.push(partialFilePaths[i]);
-			newLog[partialFilePaths[i]] = fs.statSync(localRoot + "/" + partialFilePaths[i]).mtime.toString();
+		if(logDate != fileDate || logDate == "new"){
+			if(partialFilePaths[i] == "/modifiedLog.json"){
+				//skip the logFile
+			}else {
+				newFileList.push(partialFilePaths[i]);
+				newLog[partialFilePaths[i]] = fs.statSync(localRoot + "/" + partialFilePaths[i]).mtime.toString();
+			}
 		} else {
 			newLog[partialFilePaths[i]] = fs.statSync(localRoot + "/" + partialFilePaths[i]).mtime.toString();
 		}
