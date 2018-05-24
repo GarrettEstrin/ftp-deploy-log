@@ -10,9 +10,6 @@ npm install ftp-deploy-log
 
 (Need sftp? Check out [sftp-upload](https://github.com/pirumpi/sftp-upload))
 
-## New maintainer
-
-I've taken over from Rick in May 2017, and will start working on the deprecation warnings, and the 'delete remote directory' requests.
 
 ## Usage
 
@@ -39,7 +36,8 @@ var config = {
 	remoteRoot: "/public_html/remote-folder/",
 	include: ['build/version.txt'],
 	exclude: ['.git', '.idea', 'tmp/*', 'build/*'],
-	useLog: true;  // set to false if you do not want to track file modified dates to ignore previously 			   // pushed versions of files
+  useLog: true,  // set to false if you do not want to track file modified dates to ignore previously 			   // pushed versions of files
+  staging: true //set to true if you want to push to the alternate env
 }
 	
 ftpDeploy.deploy(config, function(err) {

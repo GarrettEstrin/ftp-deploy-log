@@ -1,6 +1,9 @@
 # Changelog
 
-## 1.2.9 
+## 1.2.11
+    -modifiedlog file name is now based on config filename
+
+## 1.2.10
     -Can specifify a seperate config and log to push to a seperate env.  Set config.staging = true in new config to use staging log.
 
 ## 1.2.4

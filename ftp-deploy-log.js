@@ -6,7 +6,7 @@ const Ftp = require('jsftp');
 const async = require('async');
 const minimatch = require('minimatch');
 const read = require('read');
-var logFileName = 'modifiedLog.json';
+var logFileName;
 
 // A utility function to remove lodash/underscore dependency
 // Checks an obj for a specified key
@@ -209,7 +209,9 @@ const FtpDeployer = function () {
 			useLog = false;
     }
     if(config.staging == true){
-      logFileName = 'modifiedLogStaging.json';
+      logFileName = 'modifiedLog-' + config.env + '.json';
+    } else {
+      logFileName = 'modifiedLog.json';
     }
     
 		exclude = config.exclude || exclude;
