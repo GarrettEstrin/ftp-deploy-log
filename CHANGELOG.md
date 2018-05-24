@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.2.9 
+    -Can specifify a seperate config and log to push to a seperate env.  Set config.staging = true in new config to use staging log.
+
 ## 1.2.4
     - Adds full directory upload at time of log creation.  All uploades after log creation will exclude any files that have not been modified since last upload.
 

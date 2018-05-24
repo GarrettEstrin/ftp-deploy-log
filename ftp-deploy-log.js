@@ -6,6 +6,7 @@ const Ftp = require('jsftp');
 const async = require('async');
 const minimatch = require('minimatch');
 const read = require('read');
+var logFileName = 'modifiedLog.json';
 
 // A utility function to remove lodash/underscore dependency
 // Checks an obj for a specified key
@@ -206,7 +207,11 @@ const FtpDeployer = function () {
 			useLog = config.useLog;
 		}else {
 			useLog = false;
-		}
+    }
+    if(config.staging == true){
+      logFileName = 'modifiedLogStaging.json';
+    }
+    
 		exclude = config.exclude || exclude;
 		include = config.include || include;
 
@@ -244,16 +249,16 @@ const FtpDeployer = function () {
 util.inherits(FtpDeployer, events.EventEmitter);
 
 function createModifiedLogIfNotCreated(localRoot){
-	if(!fs.existsSync(localRoot+'/modifiedLog.json')){
+	if(!fs.existsSync(localRoot+'/' + logFileName)){
 		var json = JSON.stringify({});
-		fs.writeFileSync(localRoot+'/modifiedLog.json', json, "utf8")
+		fs.writeFileSync(localRoot+'/' + logFileName, json, "utf8")
 		initialUpload = true;
 	}else {
 		initialUpload = false;
 	}
 }
 function checkIfFileIsLogged(localRoot, partialFilePaths){
-	let log = fs.readFileSync(localRoot+"/modifiedLog.json", "utf8");
+	let log = fs.readFileSync(localRoot + "/" + logFileName, "utf8");
 	log = JSON.parse(log);
 	partialFilePaths.forEach(function(el){
 		if(log[el] == undefined){
@@ -262,7 +267,7 @@ function checkIfFileIsLogged(localRoot, partialFilePaths){
 		}
 	})
 	let json = JSON.stringify(log)
-	fs.writeFileSync(localRoot+'/modifiedLog.json', json, "utf8")
+	fs.writeFileSync(localRoot+'/' + logFileName, json, "utf8")
 	return log;
 }
 function checkIfFileIsModified(localRoot, partialFilePaths, log){
@@ -273,7 +278,7 @@ function checkIfFileIsModified(localRoot, partialFilePaths, log){
 		let fileDate = fs.statSync(localRoot + "/" + partialFilePaths[i]).mtime;
 		fileDate = fileDate.toString();
 		if(logDate != fileDate || logDate == "new"){
-			if(partialFilePaths[i] == "/modifiedLog.json"){
+			if(partialFilePaths[i] == "/" + logFileName){
 				//skip the logFile
 			}else {
 				newFileList.push(partialFilePaths[i]);
@@ -284,7 +289,7 @@ function checkIfFileIsModified(localRoot, partialFilePaths, log){
 		}
 	}
 	let json = JSON.stringify(newLog);
-	fs.writeFileSync(localRoot+'/modifiedLog.json', json, "utf8");
+	fs.writeFileSync(localRoot+'/' + logFileName, json, "utf8");
 	if(typeof initialUpload == "undefined"){
 		initialUpload = true;
 	}
